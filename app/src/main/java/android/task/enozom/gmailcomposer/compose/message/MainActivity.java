@@ -1,7 +1,8 @@
-package android.task.enozom.gmailcomposer;
+package android.task.enozom.gmailcomposer.compose.message;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.task.enozom.gmailcomposer.R;
 
 public class MainActivity extends Activity {
 
