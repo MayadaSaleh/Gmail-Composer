@@ -2,21 +2,47 @@ package task.enozom.gmailcomposer.composer;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Optional;
 import task.enozom.gmailcomposer.R;
+import task.enozom.gmailcomposer.pojos.MessagePojo;
 
 public class MainActivity extends Activity {
+
+
+    @BindView(R.id.messageSubject)
+    EditText messageEnteredSubject;
+
+    @BindView(R.id.messageContent)
+    EditText messageEnteredContent;
 
 
     @Nullable
@@ -34,11 +60,19 @@ public class MainActivity extends Activity {
 
     Dialog attachmentPopUp;
 
+    private static final int PICK_IMAGE_REQUEST = 234;
+    private Uri filePath;
+
+    private StorageReference storageReference;
+    private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        storageReference = FirebaseStorage.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference("uploads");
 
         attachmentPopUp = new Dialog(this);
 
@@ -56,7 +90,12 @@ public class MainActivity extends Activity {
         cameraImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"kkkkkkkkkkkkkkkkkkkkkk",Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+
 
             }
             });
@@ -67,9 +106,20 @@ public class MainActivity extends Activity {
 
     }
 
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            filePath = data.getData();
+        }
+    }
+
     @OnClick(R.id.sendButton)
     public void sendfile(View view){
 
+        
     }
 
     @Optional
