@@ -1,4 +1,4 @@
-package android.task.enozom.gmailcomposer;
+package task.enozom.gmailcomposer;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("android.task.enozom.gmailcomposer", appContext.getPackageName());
+        assertEquals("task.enozom.gmailcomposer", appContext.getPackageName());
     }
 }

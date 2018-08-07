@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1095914352878",
+    "firebase_url": "https://composer2-c1622.firebaseio.com",
+    "project_id": "composer2-c1622",
+    "storage_bucket": "composer2-c1622.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095914352878:android:24d8af4586df0569",
+        "android_client_info": {
+          "package_name": "task.enozom.gmailcomposer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095914352878-99t677ibilag8kc8suar507pvk1bv09h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "task.enozom.gmailcomposer",
+            "certificate_hash": "412ed6cbffe9576a7839e87d758a9db8330d1644"
+          }
+        },
+        {
+          "client_id": "1095914352878-urnhtgkv7enf5g05nh5tjmsn2uomtiqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR5Fu8OOEXSAtSJmejDARfo12GNmSqLzQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095914352878-urnhtgkv7enf5g05nh5tjmsn2uomtiqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

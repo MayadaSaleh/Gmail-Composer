@@ -1,4 +1,4 @@
-package android.task.enozom.gmailcomposer;
+package task.enozom.gmailcomposer;
 
 import org.junit.Test;
 
